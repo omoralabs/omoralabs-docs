@@ -1,5 +1,5 @@
 {
-  "title": "Documentation",
+  "root": true,
   "pages": [
     "---Getting Started---",
     "getting-started/start-guide",

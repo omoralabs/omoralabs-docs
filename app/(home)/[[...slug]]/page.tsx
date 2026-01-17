@@ -1,20 +1,20 @@
 import { DocsPage } from "components/layout/notebook/page";
 import { PageDataSetter } from "components/layout/page-data-setter";
-import { Button } from "components/ui/button";
+
+import { NavigationBottom } from "components/nav-bottom";
 import { findNeighbour } from "fumadocs-core/page-tree";
 import { DocsBody } from "fumadocs-ui/layouts/docs/page";
 import { createRelativeLink } from "fumadocs-ui/mdx";
 import { getPageImage, source } from "lib/source";
-import { ArrowLeft, ArrowRight } from "lucide-react";
 import { getMDXComponents } from "mdx-components";
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 
 export default async function Page(props: PageProps<"/[[...slug]]">) {
   const params = await props.params;
   const page = source.getPage(params.slug);
   if (!page) notFound();
+  const neighbours = findNeighbour(source.pageTree, page.url);
 
   const MDX = page.data.body;
   const gitConfig = {
@@ -26,7 +26,6 @@ export default async function Page(props: PageProps<"/[[...slug]]">) {
   const slugPath = params.slug?.join("/") || "index";
   const markdownUrl = `/api/mdx/${slugPath}`;
   const githubUrl = `https://github.com/${gitConfig.user}/${gitConfig.repo}/blob/${gitConfig.branch}/content/docs/${slugPath}.mdx`;
-  const neighbours = findNeighbour(source.pageTree, page.url);
 
   return (
     <>
@@ -52,46 +51,7 @@ export default async function Page(props: PageProps<"/[[...slug]]">) {
             />
           </DocsBody>
         </div>
-        <div className="mx-auto flex h-16 w-full max-w-2xl items-center justify-between gap-2 px-4 md:px-0">
-          {neighbours.previous && (
-            <Button
-              variant="secondary"
-              size="sm"
-              asChild
-              className="shadow-none"
-            >
-              <Link
-                href={neighbours.previous.url}
-                className="flex gap-1 dark:text-gray-300 text-extralight"
-              >
-                <ArrowLeft />
-                <span className="hidden min-[400px]:inline">
-                  {" "}
-                  {neighbours.previous.name}
-                </span>
-              </Link>
-            </Button>
-          )}
-          {neighbours.next && (
-            <Button
-              variant="secondary"
-              size="sm"
-              className="ml-auto shadow-none"
-              asChild
-            >
-              <Link
-                href={neighbours.next.url}
-                className="flex gap-1 dark:text-gray-300 text-extralight"
-              >
-                <span className="hidden min-[400px]:inline">
-                  {" "}
-                  {neighbours.next.name}
-                </span>
-                <ArrowRight />
-              </Link>
-            </Button>
-          )}
-        </div>
+        <NavigationBottom neighbours={neighbours} />
       </DocsPage>
     </>
   );

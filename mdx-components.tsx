@@ -25,7 +25,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     h1: ({ className, ...props }: React.ComponentProps<"h1">) => (
       <h1
         className={cn(
-          "font-heading mt-2 scroll-m-28 text-3xl font-bold tracking-tight",
+          "font-heading mt-2 scroll-m-28 text-3xl font-bold tracking-tight  dark:text-gray-300",
           className,
         )}
         {...props}
@@ -41,7 +41,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
             .replace(/\?/g, "")
             .toLowerCase()}
           className={cn(
-            "font-heading [&+]*:[code]:text-xl mt-10 scroll-m-28 text-xl font-medium tracking-tight first:mt-0 lg:mt-16 [&+.steps]:!mt-0 [&+.steps>h3]:!mt-4 [&+h3]:!mt-6 [&+p]:!mt-4",
+            "font-heading [&+]*:[code]:text-xl mt-10 scroll-m-28 text-xl font-medium tracking-tight first:mt-0 lg:mt-16 [&+.steps]:!mt-0 [&+.steps>h3]:!mt-4 [&+h3]:!mt-6 [&+p]:!mt-4  dark:text-gray-300",
             className,
           )}
           {...props}
@@ -51,7 +51,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     h3: ({ className, ...props }: React.ComponentProps<"h3">) => (
       <h3
         className={cn(
-          "font-heading mt-12 scroll-m-28 text-lg font-medium tracking-tight [&+p]:!mt-4 *:[code]:text-xl",
+          "font-heading mt-12 scroll-m-28 text-lg font-medium tracking-tight [&+p]:!mt-4 *:[code]:text-xl  dark:text-gray-300",
           className,
         )}
         {...props}
@@ -60,7 +60,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     h4: ({ className, ...props }: React.ComponentProps<"h4">) => (
       <h4
         className={cn(
-          "font-heading mt-8 scroll-m-28 text-base font-medium tracking-tight",
+          "font-heading mt-8 scroll-m-28 text-base font-medium tracking-tight  dark:text-gray-300",
           className,
         )}
         {...props}
@@ -69,7 +69,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     h5: ({ className, ...props }: React.ComponentProps<"h5">) => (
       <h5
         className={cn(
-          "mt-8 scroll-m-28 text-base font-medium tracking-tight",
+          "mt-8 scroll-m-28 text-base font-medium tracking-tight  dark:text-gray-300",
           className,
         )}
         {...props}
@@ -78,7 +78,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     h6: ({ className, ...props }: React.ComponentProps<"h6">) => (
       <h6
         className={cn(
-          "mt-8 scroll-m-28 text-base font-medium tracking-tight",
+          "mt-8 scroll-m-28 text-base font-medium tracking-tight  dark:text-gray-300",
           className,
         )}
         {...props}
