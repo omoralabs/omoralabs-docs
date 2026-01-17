@@ -1,0 +1,28 @@
+{
+  "title": "Documentation",
+  "pages": [
+    "---Getting Started---",
+    "getting-started/start-guide",
+    "getting-started/methodology",
+    "getting-started/who-is-it",
+    "---Core Principles---",
+    "core-principles/a-primer",
+    "core-principles/finance-as-software",
+    "core-principles/composable-metrics",
+    "core-principles/single-source-of-truth",
+    "core-principles/no-vendor-lock-in",
+    "core-principles/ownership-control",
+    "---Stack & Tools---",
+    "stack/overview",
+    "stack/compute-and-analytics",
+    "stack/data-warehouses",
+    "stack/orchestration",
+    "stack/sql-models",
+    "stack/reporting-and-bi",
+    "stack/ai-layer",
+    "---Next Steps---",
+    "next/projects/",
+    "next/playground",
+    "next/omora-labs"
+  ]
+}
