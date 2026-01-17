@@ -458,7 +458,7 @@ function DocsNavbar({
                   target="_blank"
                   rel="noopener noreferrer"
                   className={cn(
-                    buttonVariants({ size: "sm", color: "secondary" }),
+                    buttonVariants({ size: "sm", color: "primary" }),
                   )}
                 >
                   <LogoSVG className="size-3" />

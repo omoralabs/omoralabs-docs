@@ -259,8 +259,6 @@ export function PageFooter({ items, children, className, ...props }: FooterProps
         )}
         {...props}
       >
-        {previous && <FooterItem item={previous} index={0} />}
-        {next && <FooterItem item={next} index={1} />}
       </div>
       {children}
     </>
