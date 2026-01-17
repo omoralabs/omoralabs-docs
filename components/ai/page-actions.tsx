@@ -1,10 +1,5 @@
 "use client";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "components/ui/tooltip";
-import { cn } from "lib/cn";
+import { Tooltip, TooltipContent, TooltipTrigger } from "components/ui/tooltip";
 import { AnimatePresence, motion } from "framer-motion";
 import { buttonVariants } from "fumadocs-ui/components/ui/button";
 import {
@@ -13,6 +8,7 @@ import {
   PopoverTrigger,
 } from "fumadocs-ui/components/ui/popover";
 import { useCopyButton } from "fumadocs-ui/utils/use-copy-button";
+import { cn } from "lib/cn";
 import { Check, ChevronDown, Copy, ExternalLinkIcon } from "lucide-react";
 import { useMemo, useState } from "react";
 import { toast } from "sonner";
@@ -104,38 +100,40 @@ export function CombinedPageActions({
   return (
     <div className="inline-flex items-center rounded-lg border divide-x">
       <Tooltip>
-      <TooltipTrigger asChild>
-      <button
-        disabled={isLoading}
-        className={cn(
-          "inline-flex items-center gap-2 px-3 py-1.5 text-sm font-medium hover:bg-fd-accent rounded-l-lg cursor-pointer transition-colors",
-        )}
-        onClick={onClick}
-      >
-        <AnimatePresence mode="wait" initial={false}>
-          {checked ? (
-            <motion.div
-              key="check"
-              initial={{ scale: 0, rotate: -180 }}
-              animate={{ scale: 1, rotate: 0 }}
-              exit={{ scale: 0, rotate: 180 }}
-              transition={{ duration: 0.2, ease: "easeInOut" }}
-            >
-              <Check className="size-4" />
-            </motion.div>
-          ) : (
-            <motion.div
-              key="copy"
-              initial={{ scale: 0, rotate: 180 }}
-              animate={{ scale: 1, rotate: 0 }}
-              exit={{ scale: 0, rotate: -180 }}
-              transition={{ duration: 0.2, ease: "easeInOut" }}
-            >
-              <Copy className="size-4  text-fd-muted-foreground" />
-            </motion.div>
-          )}
-        </AnimatePresence>
-        <span className="text-xs text-fd-muted-foreground">Copy page</span>
+        <TooltipTrigger asChild>
+          <button
+            disabled={isLoading}
+            className={cn(
+              "inline-flex items-center gap-2 px-3 py-1.5 text-sm font-medium hover:bg-fd-accent rounded-l-lg cursor-pointer transition-colors",
+            )}
+            onClick={onClick}
+          >
+            <AnimatePresence mode="wait" initial={false}>
+              {checked ? (
+                <motion.div
+                  key="check"
+                  initial={{ scale: 0, rotate: -180 }}
+                  animate={{ scale: 1, rotate: 0 }}
+                  exit={{ scale: 0, rotate: 180 }}
+                  transition={{ duration: 0.2, ease: "easeInOut" }}
+                >
+                  <Check className="size-4" />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="copy"
+                  initial={{ scale: 0, rotate: 180 }}
+                  animate={{ scale: 1, rotate: 0 }}
+                  exit={{ scale: 0, rotate: -180 }}
+                  transition={{ duration: 0.2, ease: "easeInOut" }}
+                >
+                  <Copy className="size-4  dark:text-gray-200 text-black" />
+                </motion.div>
+              )}
+            </AnimatePresence>
+            <span className="text-xs dark:text-gray-200 text-black">
+              Copy page
+            </span>
           </button>
         </TooltipTrigger>
         <TooltipContent className="dark:bg-black dark:text-gray-200 border bg-white text-gray-700 select-none">

@@ -50,7 +50,7 @@ export function ThemeToggle({
     return (
       <button
         className={cn(
-          "size-8 rounded-md p-2 text-fd-muted-foreground hover:bg-fd-accent cursor-pointer border",
+          "size-8 rounded-md p-2 dark:text-white hover:bg-fd-accent cursor-pointer",
           className,
         )}
         aria-label="Toggle Theme"

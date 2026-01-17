@@ -82,7 +82,7 @@ export function createPageTreeRenderer({
 
           if (Item) return <Item key={item.url} item={item} />;
           return (
-            <SidebarItem key={item.url} href={item.url} external={item.external} icon={item.icon}>
+            <SidebarItem key={item.url} href={item.url} external={item.external} icon={item.icon} className="text-[13px]">
               {item.name}
             </SidebarItem>
           );
