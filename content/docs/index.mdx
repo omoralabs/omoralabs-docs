@@ -1,33 +1,51 @@
 ---
 title: Introduction
-description: "omoralabs/cf is a set of reusable and accessible components and blocks for composable finance. Never look for a broken formula, ever again."
+description: "A set of reusable components and blocks for building modern finance analytics. Works with modern data stacks and analytics tools. Open source. Open code."
 ---
 
+You know how most finance departments work: the accounting team runs the books on the traditional ERP. You download all the data into your spreadsheet. Then grab the numbers from file `budget_v3_approved.xlsx` to run the budget vs actuals alongside the board deck and SaaS metrics the CEO just asked. The investors are waiting.
 
-## Overview
-
-You know how most finance departments work: the accounting team runs the book on the traditional ERP, you download all the data into your spreadsheet, then grab the numbers from file `budget_v3_approved.xlsx`.
-
-This approach works well until you want to scale, add new business units or have to handle multiple entities with different currencies. The solution looks bright and shiny: implement a more powerful tool that runs all of this out of box. Except that they don't integrate with your CRM, so you don't really know how many new customers you added last month. Nor they can run a cash runway calculation depending on a set of inputs. Not to speak of 7 months implementations and 12-month running contracts.
+This approach works well until you want to scale, add new business units or have to handle multiple entities with different currencies. The solution looks bright and shiny: implement a more powerful ERP that runs all of this out of box. Except that they don't integrate with your CRM, so you don't really know how many new customers you added last month. Nor they can run a cash runway calculation depending on a set of inputs. Not to speak of 7 months implementations and 12-month running contracts.
 
 This is what omoralabs/cf aims to solve. It is built around the following principles:
 
-- Finance as Software: each part of the finance workflow is defined once, done once, completed once. Just like software.
-- Composition: Every block uses components locked in and defined first.
-- Single Source of Truth: The components and blocks should be served from your existing stack, without long implementations. Instead, dial-in -> plug-in.
-- No Vendor Lock In: Built on top of modern, blazing fast open source tools and beaufitul UI tools.
-- AI Ready: Open code for LLMs to read, understand, and improve.
+- Open Code: All code, components, and blocks are fully open source.
+- Composition: Each block is predictable, reusable, and built from primitives that are explicitly defined first.
+- Single Source of Truth: All components and blocks are designed to read directly from your existing data warehouse.
+- No Vendor Lock In: Built with vendor-agnostic architecture so you can switch BI tools or data warehouse providers without reworking your code.
+- Only Best Stack: Stack composed of blazing fast, best in class open source code and frameworks.
+- AI Ready: The codebase is structured, readable, and consistent, making it easy for AI tools to understand and work with.
 
-## Finance as Software
+## Open Code
+
+All code, components, and blocks are fully open source, giving you complete visibility into how everything works. Because the code is open, you can adapt it to your organization's needs, extend it for new use cases, or strip it down to the essentials. You own the implementation and can evolve it as your data stack and business mature.
 
 ## Composition
 
+Composable finance is built on (yes, you guessed it) **composability**: small, well-defined components are assembled into higher-level blocks. Each block is predictable, reusable, and built from primitives that are explicitly defined first.
+
+This approach mirrors modern software architecture and avoids one-off dashboards or tightly coupled logic. You can swap components, recombine blocks, or create new ones without breaking the system.
+
 ## Single Source of Truth
 
-## No Vendor Lock IN
+All components and blocks are designed to read directly from your existing data warehouse. Metrics, time-windows, and dimensions live in one place, not duplicated across tools or dashboards.
+
+This ensures consistency across teams and use cases, reduces reconciliation work, and prevents metric drift. Finance, Ops, and leadership all see the same numbers. **Computed once, reused everywhere**.
+
+## No Vendor Lock In
+
+The architecture is intentionally vendor-agnostic, separating data models, business logic, and presentation. This lets you change BI tools or data warehouse providers without rewriting your core logic.
+
+You can evolve your stack over time - from [Snowflake](https://www.snowflake.com) to [BigQuery](https://console.cloud.google.com/bigquery), from [Looker](https://lookerstudio.google.com/) to [Hex](https://hex.tech/) - while keeping your components and blocks intact. Your data model stays portable and future-proof.
+
+## Only Best Stack
+
+The components and blocks are built exclusively on best-in-class, open-source technologies chosen for performance, reliability, and long-term viability. Every framework and library is selected because it is widely adopted, well-maintained, and proven in production environments.
+
+This results in a fast, modern stack with no experimental dependencies or unnecessary layers. You get performance by default, transparency by design, and a foundation that can scale with both data volume and organisational complexity.
 
 ## AI-Ready
 
-The design of omoralabs/cf makes it easy for AI tools to work with your code. Its open code and consistent API allow AI models to read, understand, and even generate new components.
+The codebase is structured, readable, and consistent, making it easy for AI tools to understand and work with. Components follow clear patterns, which LLMs can reliably parse and reason about.
 
-An AI model can learn how your components work and suggest improvements or even create new components that integrate with your existing composition.
+This enables AI-assisted development: suggesting improvements, generating new components, or adapting existing ones to new requirements.
