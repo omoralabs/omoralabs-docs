@@ -1,11 +1,9 @@
 import { CodeBlock, Pre } from "components/codeblock";
+import RenderTable from "components/render-table";
+import { Banner } from "fumadocs-ui/components/banner";
 import * as TabsComponents from "fumadocs-ui/components/tabs";
 import defaultMdxComponents from "fumadocs-ui/mdx";
 import { cn } from "lib/utils";
-import type { MDXComponents } from "mdx/types";
-import Link from "next/link";
-import RenderTable from "components/render-table";
-import { Banner } from "fumadocs-ui/components/banner";
 import {
   ArrowLeftRight,
   Box,
@@ -17,6 +15,8 @@ import {
   Wallet,
   Zap,
 } from "lucide-react";
+import type { MDXComponents } from "mdx/types";
+import Link from "next/link";
 
 export function getMDXComponents(components?: MDXComponents): MDXComponents {
   return {

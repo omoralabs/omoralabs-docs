@@ -82,9 +82,12 @@ export function CodeBlock({
 }: CodeBlockProps) {
   const inTab = use(TabsContext) !== null;
   const areaRef = useRef<HTMLDivElement>(null);
-  const buttonClassName = "inline-flex items-center gap-2 px-2 py-2 text-sm hover:bg-fd-accent rounded-lg cursor-pointer transition-colors"
-  const tooltipClassName = "dark:bg-white dark:text-black border bg-black text-gray-200 select-none font-light"
-  const iconClassName="size-4 dark:text-gray-400 text-black dark:hover:text-gray-100"
+  const buttonClassName =
+    "inline-flex items-center gap-2 px-2 py-2 text-sm hover:bg-fd-accent rounded-lg cursor-pointer transition-colors";
+  const tooltipClassName =
+    "dark:bg-white dark:text-black border bg-black text-gray-200 select-none font-light";
+  const iconClassName =
+    "size-4 dark:text-gray-400 text-black dark:hover:text-gray-100";
 
   return (
     <figure
@@ -98,7 +101,7 @@ export function CodeBlock({
           : "my-4 bg-fd-card rounded-xl",
         keepBackground && "bg-(--shiki-light-bg) dark:bg-(--shiki-dark-bg)",
 
-        "shiki relative border shadow-sm not-prose overflow-hidden text-sm",
+        "shiki relative border shadow-sm not-prose text-sm",
         props.className,
       )}
     >
@@ -132,7 +135,7 @@ export function CodeBlock({
       ) : (
         Actions({
           className:
-            "absolute top-3 right-2 z-2 backdrop-blur-lg rounded-lg text-fd-muted-foreground",
+            "sticky top-2 right-2 z-2 float-right backdrop-blur-lg rounded-lg text-fd-muted-foreground",
           children: allowCopy && (
             <CopyButton
               copyElement={areaRef}
@@ -151,7 +154,7 @@ export function CodeBlock({
         role="region"
         tabIndex={0}
         className={cn(
-          "text-[0.8125rem] py-3.5 overflow-auto max-h-[600px] fd-scroll-container focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-fd-ring",
+          "text-[0.8125rem] py-3.5 overflow-auto fd-scroll-container scrollbar-hide max-h-[600px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-fd-ring",
           viewportProps.className,
         )}
         style={

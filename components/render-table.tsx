@@ -29,13 +29,13 @@ export default function RenderTable({
 
   return (
     <div className="flex flex-col gap-0 select-none">
-      <div className="flex bg-transparent justify-center w-full p-8 border border-b-0 rounded-t-lg">
-        <Table>
+      <div className="flex bg-transparent justify-center w-full p-8 border rounded-t-lg">
+        <Table className="rounded-none border-none">
           <TableCaption>{caption}</TableCaption>
           <TableHeader>
             <TableRow>
               {columns.map((c) => (
-                <TableHead className="w-[100px]" key={c}>
+                <TableHead className="w-[100px] bg-transparent" key={c}>
                   {c}
                 </TableHead>
               ))}
@@ -45,7 +45,7 @@ export default function RenderTable({
             {records.map((row, i) => (
               <TableRow key={i}>
                 {columns.map((c) => (
-                  <TableCell className="font-medium" key={c}>
+                  <TableCell className="font-light text-sm" key={c}>
                     {row[c]}
                   </TableCell>
                 ))}
@@ -54,7 +54,7 @@ export default function RenderTable({
           </TableBody>
         </Table>
       </div>
-      <div className="[&>figure]:my-0 [&>figure]:rounded-t-none">
+      <div className="dark:bg-zinc-700/30 [&>figure]:bg-transparent! bg-zinc-200/30 [&>figure]:my-0 overflow-auto h-75 [&>figure]:border-none! border rounded-b-lg scrollbar-hide [&_div[role=region]]:overflow-visible [&_div[role=region]]:max-h-none">
         {children}
       </div>
     </div>
