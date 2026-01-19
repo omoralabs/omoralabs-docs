@@ -5,4 +5,4 @@
 # Omora Labs Documentation
 
 Official Omora Labs documentation.
-A set of reusable components and blocks for building modern finance analytics.
+Building blocks for composable, modern finance analytics.

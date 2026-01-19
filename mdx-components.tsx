@@ -1,10 +1,9 @@
-import { CodeBlock, Pre } from "fumadocs-ui/components/codeblock";
+import { CodeBlock, Pre } from "components/codeblock";
 import * as TabsComponents from "fumadocs-ui/components/tabs";
 import defaultMdxComponents from "fumadocs-ui/mdx";
 import { cn } from "lib/utils";
 import type { MDXComponents } from "mdx/types";
 import Link from "next/link";
-
 import RenderTable from "components/render-table";
 import { Banner } from "fumadocs-ui/components/banner";
 import {
@@ -134,14 +133,16 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     hr: ({ ...props }: React.ComponentProps<"hr">) => (
       <hr className="my-4 md:my-8" {...props} />
     ),
-    pre: ({ ref: _ref, ...props }) => (
-      <CodeBlock
-        {...props}
-        className=" bg-zinc-700/30 relative rounded-md px-[0.3rem] py-[0.2rem] font-mono text-[0.8rem] break-words outline-none"
-      >
-        <Pre>{props.children}</Pre>
-      </CodeBlock>
-    ),
+    pre: ({ ref: _ref, ...props }) => {
+      return (
+        <CodeBlock
+          {...props}
+          className="dark:bg-zinc-700/30 bg-zinc-200/30 relative rounded-md px-[0.3rem] py-[0.2rem] font-mono text-[0.8rem] break-words outline-none"
+        >
+          <Pre>{props.children}</Pre>
+        </CodeBlock>
+      );
+    },
     figure: ({ className, ...props }: React.ComponentProps<"figure">) => {
       return <figure className={cn(className)} {...props} />;
     },
