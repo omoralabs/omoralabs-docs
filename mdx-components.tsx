@@ -137,7 +137,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
       return (
         <CodeBlock
           {...props}
-          className="dark:bg-zinc-700/30 bg-zinc-200/30 relative rounded-md px-[0.3rem] py-[0.2rem] font-mono text-[0.8rem] break-words outline-none"
+          className="dark:bg-zinc-700/30 bg-zinc-200/30 relative rounded-md px-[0.3rem] py-[0.2rem] font-mono text-[0.8rem] break-words outline-none max-h-85 overflow-auto scrollbar-hide"
         >
           <Pre>{props.children}</Pre>
         </CodeBlock>

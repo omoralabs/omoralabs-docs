@@ -5,7 +5,18 @@ description: A chart of accounts dimension, defining financial account hierarchy
   
 <RenderTable csvPath="data_samples/gl_accounts.csv" caption="A list of GL accounts"> 
   
-```python lineNumbers"
+```sql
+CREATE TABLE IF NOT EXISTS gl_accounts (
+    id INTEGER PRIMARY KEY,
+    name VARCHAR NOT NULL,
+    parent_gl INTEGER
+);
+```
+</RenderTable>
+
+
+
+```python lineNumbers
 from io importStringIO
 import polars as pl
 
@@ -44,12 +55,6 @@ csv_data = """id,name,parent_gl
 6051,data_staff,6050
 6052,data_non_staff,6050
 """
-
-
 df = pl.read_csv(StringIO(csv_data))
 print(df)
-```  
-</RenderTable>
-
-
-
+```

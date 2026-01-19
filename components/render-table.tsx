@@ -54,7 +54,7 @@ export default function RenderTable({
           </TableBody>
         </Table>
       </div>
-      <div className="dark:bg-zinc-700/30 [&>figure]:bg-transparent! bg-zinc-200/30 [&>figure]:my-0 overflow-auto h-75 [&>figure]:border-none! border rounded-b-lg scrollbar-hide [&_div[role=region]]:overflow-visible [&_div[role=region]]:max-h-none">
+      <div className="dark:bg-zinc-700/30 [&>figure]:bg-transparent! bg-zinc-200/30 [&>figure]:my-0 overflow-auto max-h-75 [&>figure]:border-none! border rounded-b-lg scrollbar-hide [&_div[role=region]]:overflow-visible [&_div[role=region]]:max-h-none">
         {children}
       </div>
     </div>
