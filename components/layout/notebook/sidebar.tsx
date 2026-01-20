@@ -169,7 +169,7 @@ export function SidebarFolderTrigger({
 
   return (
     <Base.SidebarFolderTrigger
-      className={cn(itemVariants({ variant: collapsible ? 'button' : null }), 'w-full', className)}
+      className={cn(itemVariants({ variant: collapsible ? 'button' : null }), 'w-full text-lg font-medium', className)}
       style={{
         paddingInlineStart: getItemOffset(depth - 1),
         ...style,
