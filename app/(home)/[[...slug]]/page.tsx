@@ -40,7 +40,7 @@ export default async function Page(props: PageProps<"/[[...slug]]">) {
         <h1 className="scroll-m-20 text-3xl font-semibold tracking-tight sm:text-4xl dark:text-gray-300 w-full">
           {page.data.title}
         </h1>
-        <p className="text-muted-foreground text-base sm:text-[1.05rem] font-light">
+        <p className="text-muted-foreground text-base sm:text-[1.05rem] font-light w-full">
           {page.data.description}
         </p>
         <div className="py-8 w-full">

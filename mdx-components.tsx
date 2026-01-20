@@ -1,4 +1,5 @@
 import { CodeBlock, Pre } from "components/codeblock";
+import GLAccountsSelector from "components/gl_accounts";
 import RenderTable from "components/render-table";
 import { Banner } from "fumadocs-ui/components/banner";
 import * as TabsComponents from "fumadocs-ui/components/tabs";
@@ -18,7 +19,7 @@ import {
 import type { MDXComponents } from "mdx/types";
 import Link from "next/link";
 
-import ReadComponent from "components/read-components";
+import ReadComponents from "components/read-components";
 
 export function getMDXComponents(components?: MDXComponents): MDXComponents {
   return {
@@ -178,7 +179,8 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     Box,
     RenderTable,
     CodeBlock,
-    ReadComponent,
+    ReadComponents,
+    GLAccountsSelector,
     Link: ({ className, ...props }: React.ComponentProps<typeof Link>) => (
       <Link
         className={cn(

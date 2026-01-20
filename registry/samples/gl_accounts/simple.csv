@@ -1,0 +1,8 @@
+id,name,parent_gl
+1000,revenue,
+1010,subscriptions,1000
+1020,services,1000
+1030,others,1000
+2000,cogs,
+2010,payment_fees,2000
+2020,other_costs,2000

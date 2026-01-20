@@ -31,7 +31,7 @@ export default function RenderTable({
     <div className="flex flex-col gap-0 select-none">
       <div className="flex bg-transparent justify-center w-full p-8 border rounded-t-lg">
         <Table className="rounded-none border-none">
-          <TableCaption>{caption}</TableCaption>
+          <TableCaption className="pt-10">{caption}</TableCaption>
           <TableHeader>
             <TableRow>
               {columns.map((c) => (

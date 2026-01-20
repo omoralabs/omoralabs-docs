@@ -1,0 +1,8 @@
+id,name,parent_gl,business_unit
+1000,revenue,,
+1010,subscriptions,1000,1
+1020,services,1000,2
+1030,others,1000,1
+2000,cogs,,
+2010,payment_fees,2000,1
+2020,other_costs,2000,2

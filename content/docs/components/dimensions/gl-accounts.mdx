@@ -3,22 +3,28 @@ title: GL Accounts
 description: A chart of accounts dimension, defining financial account hierarchy used by reporting and metrics.
 ---
 
-ashjdadshjkdashjkdahjkshjkdsahjakdskhjsdahjkaskjhdsaahjkdsakhjdsakhjdskhjadskhjadsjhkdaskhjadskjhadskhjasdkjhdasjhkdasjhkadsjkhdsajkhdasjkhadsjhkadsjhkdasjkhadsjhkdasjhkdsajhkdsajhkdasjhdaskjh.
+export const caption = "A list of simple GL Accounts"
+export const caption_segmented = "A list of GL Accounts segmented with business units"
 
-asdhjkasdhdashadshgjadshgjdashgjadshgjdashjgadshgjdsjkdshadshjadshdsahjdashgjdas
-
-## Installation
+<GLAccountsSelector
+  segmented={
+  <RenderTable csvPath="registry/samples/gl_accounts/segmented.csv" caption={caption_segmented}>
+  <ReadComponents filePath="registry/components/gl_accounts/schema.py" />
+  </RenderTable>
+  }
+  simple={
+  <RenderTable csvPath="registry/samples/gl_accounts/simple.csv" caption={caption}>
+  <ReadComponents filePath="registry/components/gl_accounts/schema.py" />
+  </RenderTable>
+  }
+/>
 
 ## Usage
 
-## Test
+<ReadComponents
+    filePath="registry/components/gl_accounts/schema.py"
+  />
 
-## Test
+## Dependencies
 
-## Test
-
-## Test
-
-### Test
-
-#### Test
+If segmented, GL Accounts component is dependent on [Business Units](/dimensions/business-units).
