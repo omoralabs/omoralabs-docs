@@ -1,0 +1,7 @@
+{
+  "name": "@omoralabs/components",
+  "version": "0.1.0",
+  "description": "Building blocks for composable, modern finance analytics",
+  "files": ["components/**/*", "samples/**/*"],
+  "license": "MIT"
+}

@@ -18,6 +18,8 @@ import {
 import type { MDXComponents } from "mdx/types";
 import Link from "next/link";
 
+import ReadComponent from "components/read-components";
+
 export function getMDXComponents(components?: MDXComponents): MDXComponents {
   return {
     ...defaultMdxComponents,
@@ -176,6 +178,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     Box,
     RenderTable,
     CodeBlock,
+    ReadComponent,
     Link: ({ className, ...props }: React.ComponentProps<typeof Link>) => (
       <Link
         className={cn(

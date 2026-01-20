@@ -25,7 +25,7 @@ export default defineConfig({
       rehypeCodeOptions: {
         themes: {
           light: 'github-light',
-          dark: 'github-dark-default',
+          dark: 'ayu-dark',
         },
       },
     },

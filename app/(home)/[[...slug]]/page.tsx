@@ -30,6 +30,7 @@ export default async function Page(props: PageProps<"/[[...slug]]">) {
   return (
     <>
       <PageDataSetter markdownUrl={markdownUrl} githubUrl={githubUrl} />
+
       <DocsPage
         toc={page.data.toc}
         full={page.data.full}
