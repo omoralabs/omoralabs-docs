@@ -21,12 +21,12 @@ export const docs = defineDocs({
 });
 
 export default defineConfig({
-    mdxOptions: {
-      rehypeCodeOptions: {
-        themes: {
-          light: 'github-light',
-          dark: 'ayu-dark',
-        },
+  mdxOptions: {
+    rehypeCodeOptions: {
+      themes: {
+        light: "github-light-default",
+        dark: "ayu-dark",
       },
     },
-  });
+  },
+});

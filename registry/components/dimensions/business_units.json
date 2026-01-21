@@ -1,0 +1,12 @@
+{
+  "table_name": "business_units",
+  "fields": {
+    "id": {
+      "type": "INTEGER PRIMARY KEY"
+    },
+    "name": {
+      "type": "VARCHAR NOT NULL"
+    }
+  },
+  "foreign_keys": []
+}

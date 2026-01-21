@@ -3,17 +3,33 @@ title: Business Units
 description: A business unit dimension, operational grouping for reporting and metrics.
 ---
 
-## Code Block
+export const caption = "A list of Business Units"
+export const example = "registry/components/implementations/business_units.py"
 
-```js
-console.log('Hello World');
-```
+  <RenderTable csvPath="registry/samples/business_units/sample.csv" caption={caption}>
+  <ReadComponents filePath={example}/>
+  </RenderTable>
 
-This is a bunch of mumbo jumbo to fill in this page with shit you know so we can see how it renders. This is a bunch of mumbo jumbo to fill in this page with shit you know so we can see how it renders. This is a bunch of mumbo jumbo to fill in this page with shit you know so we can see how it renders.
+## Usage
 
-## Cards
+<ReadComponents filePath="registry/components/dimensions/presentation/business_units.sql" />
 
-<Cards>
-  <Card title="Learn more about Next.js" href="https://nextjs.org/docs" />
-  <Card title="Learn more about Fumadocs" href="https://fumadocs.dev" />
-</Cards>
+## Data Format
+
+<TypeTableFromFile filePath="registry/components/dimensions/business_units.json" />
+
+## Dependencies
+
+### Internal
+
+- None.
+
+### External
+
+- None.
+
+## Integration
+
+This dimension defines and returns the SQL required to create the `gl_accounts` table. Table creation and lifecycle management are handled by the database [Methods](/components/database/methods) and [Schema Manager](/components/database/schema-manager).
+
+This dimension is fully self-contained.

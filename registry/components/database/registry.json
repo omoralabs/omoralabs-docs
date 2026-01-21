@@ -1,0 +1,18 @@
+{
+  "business_units": {
+    "schema": "registry/components/dimensions/business_units.json",
+    "dependencies": []
+  },
+  "gl_accounts_simple": {
+    "schema": "registry/components/dimensions/gl_accounts_simple.json",
+    "dependencies": []
+  },
+  "gl_accounts_segmented": {
+    "schema": "registry/components/dimensions/gl_accounts_segmented.json",
+    "dependencies": ["business_units"]
+  },
+  "value_types": {
+    "schema": "registry/components/dimensions/value_types.json",
+    "dependencies": []
+  }
+}

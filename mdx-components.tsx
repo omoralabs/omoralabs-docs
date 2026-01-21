@@ -1,6 +1,8 @@
 import { CodeBlock, Pre } from "components/codeblock";
 import GLAccountsSelector from "components/gl_accounts_segmented";
 import RenderTable from "components/render-table";
+import { TypeTable } from "components/type-table";
+import { TypeTableFromFile } from "components/type-table-from-file";
 import { Banner } from "fumadocs-ui/components/banner";
 import * as TabsComponents from "fumadocs-ui/components/tabs";
 import defaultMdxComponents from "fumadocs-ui/mdx";
@@ -186,6 +188,8 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     File,
     Folder,
     Files,
+    TypeTable,
+    TypeTableFromFile,
     Link: ({ className, ...props }: React.ComponentProps<typeof Link>) => (
       <Link
         className={cn(

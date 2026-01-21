@@ -135,7 +135,7 @@ export function CodeBlock({
       ) : (
         Actions({
           className:
-            "sticky top-2 right-2 z-2 float-right backdrop-blur-lg rounded-lg text-fd-muted-foreground",
+            "sticky top-2 float-right right-2 z-2 backdrop-blur-lg rounded-lg text-fd-muted-foreground",
           children: allowCopy && (
             <CopyButton
               copyElement={areaRef}

@@ -13,7 +13,7 @@ export default async function ReadComponents({
   const html = await codeToHtml(code, {
     lang,
     themes: {
-      light: "github-light",
+      light: "github-light-default",
       dark: "ayu-dark",
     },
     defaultColor: false,

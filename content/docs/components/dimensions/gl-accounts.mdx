@@ -1,9 +1,9 @@
 ---
 title: GL Accounts
-description: A chart of accounts dimension, defining financial account hierarchy used by reporting and metrics.
+description: A chart of accounts dimension, defining financial account hierarchy used for reporting and metrics.
 ---
 
-export const caption = "A list of simple GL Accounts"
+export const caption = "A list of GL Accounts"
 export const caption_segmented = "A list of GL Accounts segmented with business units"
 export const example = "registry/components/implementations/gl_accounts.py"
 
@@ -22,61 +22,39 @@ export const example = "registry/components/implementations/gl_accounts.py"
 
 ## Usage
 
-<ReadComponents
-    filePath="registry/components/dimensions/gl_accounts.py"
-  />
-
-## Structure
-
 <GLAccountsSelector
-segmented={
-<Files>
-    <Folder name="components" defaultOpen>
-        <Folder name="database" defaultOpen>
-            <a href="/components/database/methods">
-                <File name="methods.py" className="select-none cursor-pointer"/>
-            </a>
-            <a href="/components/database/schema-manager">
-                <File name="schema_manager.py" className="select-none cursor-pointer"/>
-            </a>
-        </Folder>
-    <Folder name="dimensions" defaultOpen>
-        <a href="/components/dimensions/gl-accounts">
-            <File name="gl_accounts.py" className="select-none cursor-pointer"/>
-        </a>
-        <a href="/components/dimensions/business-units">
-            <File name="business_units.py" className="select-none cursor-pointer"/>
-        </a>
-    </Folder>
-    </Folder>
-</Files> }
-simple={
-<Files>
-    <Folder name="components" defaultOpen>
-        <Folder name="database" defaultOpen>
-            <a href="/components/database/methods">
-                <File name="methods.py" className="select-none cursor-pointer"/>
-            </a>
-            <a href="/components/database/schema-manager">
-                <File name="schema_manager.py" className="select-none cursor-pointer"/>
-            </a>
-        </Folder>
-    <Folder name="dimensions" defaultOpen>
-        <a href="/components/dimensions/gl-accounts">
-            <File name="gl_accounts.py" className="select-none cursor-pointer"/>
-        </a>
-    </Folder>
-    </Folder>
-</Files> }
+  segmented={
+    <ReadComponents filePath="registry/components/dimensions/presentation/gl_accounts_segmented.sql" />
+  }
+  simple={
+    <ReadComponents filePath="registry/components/dimensions/presentation/gl_accounts_simple.sql" />
+  }
 />
 
+## Data Format
+
+<GLAccountsSelector
+  segmented={
+    <TypeTableFromFile filePath="registry/components/dimensions/gl_accounts_segmented.json" />
+  }
+  simple={
+    <TypeTableFromFile filePath="registry/components/dimensions/gl_accounts_simple.json" />
+  }
+/>
 
 ## Dependencies
 
 ### Internal
 
-- **[Business Units](/dimensions/business-units)**: required when `is_segmented=true`.
+- **[Business Units](./business-units)**: required when `is_segmented=true`.
 
 ### External
 
 - None.
+
+## Integration
+
+This dimension defines and returns the SQL required to create the `gl_accounts` table. Table creation and lifecycle management are handled by the database [Methods](/components/database/methods) and [Schema Manager](/components/database/schema-manager).
+
+When `is_segmented=true`, the schema extends to reference the [Business Units](./business-units) dimension.
+When `false`, the dimension remains fully self-contained.

@@ -1,0 +1,22 @@
+{
+  "table_name": "gl_accounts",
+  "fields": {
+    "id": {
+      "type": "INTEGER PRIMARY KEY"
+    },
+    "name": {
+      "type": "VARCHAR NOT NULL"
+    },
+    "parent_gl": {
+      "type": "INTEGER",
+      "description": "Self-referencing foreign key to gl_accounts(id)"
+    }
+  },
+  "foreign_keys": [
+    {
+      "field": "parent_gl",
+      "references": "gl_accounts(id)",
+      "on_delete": "SET NULL"
+    }
+  ]
+}
