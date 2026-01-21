@@ -1,5 +1,5 @@
 import { CodeBlock, Pre } from "components/codeblock";
-import GLAccountsSelector from "components/gl_accounts";
+import GLAccountsSelector from "components/gl_accounts_segmented";
 import RenderTable from "components/render-table";
 import { Banner } from "fumadocs-ui/components/banner";
 import * as TabsComponents from "fumadocs-ui/components/tabs";

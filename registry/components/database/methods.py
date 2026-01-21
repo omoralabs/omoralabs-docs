@@ -4,7 +4,7 @@ import duckdb
 import polars as pl
 
 
-class StartDB:
+class DBConnect:
     def __init__(self, db_name: str):
         self.db_name = db_name
         self.conn = duckdb.connect(db_name)

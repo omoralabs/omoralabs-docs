@@ -12,7 +12,7 @@ This is what Omora Labs finance analytics components and blocks aim to solve. It
 - Open Code: All code, components, and blocks are fully open source.
 - Composition: Each block is predictable, reusable, and built from primitives that are explicitly defined first.
 - Single Source of Truth: All components and blocks are designed to read directly from your existing data warehouse.
-- No Vendor Lock In: Built with vendor-agnostic architecture so you can switch BI tools or data warehouse providers without reworking your code.
+- Data Portability: Built on open, file-based data formats and transparent transformations, so your data and logic remain portable.
 - Only Best Stack: Stack composed of blazing fast, best in class open source code and frameworks.
 - AI Ready: The codebase is structured, readable, and consistent, making it easy for AI tools to understand and work with.
 
@@ -34,7 +34,7 @@ This ensures consistency across teams and use cases, reduces reconciliation work
 
 ## No Vendor Lock In
 
-The architecture is intentionally vendor-agnostic, separating data models, business logic, and presentation. This lets you change BI tools or data warehouse providers without rewriting your core logic.
+The architecture is intentionally designed around data portability, with a clear separation between data models, business logic, and presentation. Core transformations live in open, inspectable code and file-based data formats, not inside proprietary BI or warehouse layers.
 
 You can evolve your stack over time - from [Snowflake](https://www.snowflake.com) to [BigQuery](https://console.cloud.google.com/bigquery), from [Looker](https://lookerstudio.google.com/) to [Hex](https://hex.tech/) - while keeping your components and blocks intact. Your data model stays portable and future-proof. Your data stays yours.
 
