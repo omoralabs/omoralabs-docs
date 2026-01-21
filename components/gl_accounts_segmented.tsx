@@ -19,7 +19,7 @@ export default function GLAccountsSelector({
 
   return (
     <>
-      <div className="max-w-fit mx-auto mb-6">
+      <div className="max-w-fit mb-6">
         <Field orientation="horizontal">
           <Checkbox
             onCheckedChange={(checked) => setIsSegmented(checked === true)}
