@@ -3,6 +3,7 @@ import GLAccountsSelector from "components/gl_accounts_segmented";
 import RenderTable from "components/render-table";
 import { TypeTable } from "components/type-table";
 import { TypeTableFromFile } from "components/type-table-from-file";
+import { Tooltip, TooltipContent, TooltipTrigger } from "components/ui/tooltip";
 import { Banner } from "fumadocs-ui/components/banner";
 import * as TabsComponents from "fumadocs-ui/components/tabs";
 import defaultMdxComponents from "fumadocs-ui/mdx";
@@ -20,6 +21,15 @@ import {
 } from "lucide-react";
 import type { MDXComponents } from "mdx/types";
 import Link from "next/link";
+
+import {
+  DagsterLogo,
+  DBTLogo,
+  DuckDBLogo,
+  HexLogo,
+  LookerLogo,
+  PolarsLogo,
+} from "icons/general";
 
 import { File, Files, Folder } from "fumadocs-ui/components/files";
 
@@ -95,7 +105,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     a: ({ className, ...props }: React.ComponentProps<"a">) => (
       <a
         className={cn(
-          "font-medium underline underline-offset-4  dark:text-gray-300 font-light",
+          "underline underline-offset-4  dark:text-gray-300 font-light",
           className,
         )}
         {...props}
@@ -124,6 +134,15 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
         className={cn("mt-2  dark:text-gray-300 font-light", className)}
         {...props}
       />
+    ),
+    table: ({ className, ...props }: React.ComponentProps<"table">) => (
+      <table className={cn("w-full text-sm", className)} {...props} />
+    ),
+    th: ({ className, ...props }: React.ComponentProps<"th">) => (
+      <th className={cn("font-medium text-left p-2", className)} {...props} />
+    ),
+    td: ({ className, ...props }: React.ComponentProps<"td">) => (
+      <td className={cn("font-light p-2", className)} {...props} />
     ),
     blockquote: ({
       className,
@@ -190,6 +209,21 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     Files,
     TypeTable,
     TypeTableFromFile,
+    Tooltip,
+    TooltipTrigger,
+    TooltipContent,
+    LinkedCard: ({
+      className,
+      ...props
+    }: React.ComponentProps<typeof Link>) => (
+      <Link
+        className={cn(
+          "bg-zinc-700/10 dark:bg-zinc-700/30 text-surface-foreground dark:hover:bg-zinc-700/30 flex w-full flex-col items-center rounded-xl p-6 transition-colors sm:p-10 no-underline dark:text-gray-300",
+          className,
+        )}
+        {...props}
+      />
+    ),
     Link: ({ className, ...props }: React.ComponentProps<typeof Link>) => (
       <Link
         className={cn(
@@ -199,5 +233,11 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
         {...props}
       />
     ),
+    DagsterLogo,
+    DBTLogo,
+    DuckDBLogo,
+    HexLogo,
+    LookerLogo,
+    PolarsLogo,
   };
 }

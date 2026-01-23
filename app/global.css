@@ -158,3 +158,15 @@
 .scrollbar-hide::-webkit-scrollbar {
     display: none;
 }
+
+.step {
+    counter-increment: step;
+    position: relative;
+    padding-left: 2.5rem;
+}
+
+.step::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+}

@@ -6,8 +6,18 @@ description: Value types dimension, definition of actual values and different bu
 export const caption = "A list of Value Types"
 export const table_name = "value_types"
 
-## Component
-<br/>
+## Semantic Contract
+### Definitions
+
+| Value Type | Description |
+|------------|-------------|
+| Actuals | Recorded data of what has actually occurred. |
+| Budget | Planned figures for the full fiscal year. |
+| LE 3+9 | Forecast based on Q1 actuals plus a projection for the remaining 9 months. |
+| LE 6+6 | Forecast based on Q1 + Q2 actuals plus a projection for the remaining 6 months. |
+| LE 9+3 | Forecast based on Q1 + Q2 + Q3 actuals plus a projection for the remaining 3 months. |
+
+### Schema & Sample
 
   <RenderTable csvPath={`registry/samples/${table_name}/sample.csv`} caption={caption}>
       <ReadComponents filePath={`registry/components/dimensions/presentation/${table_name}.sql`}/>
@@ -19,20 +29,4 @@ export const table_name = "value_types"
 
 ## Dependencies
 
-### Internal
-
 - None.
-
-### External
-
-- None.
-
-## Integration
-
-This dimension defines and returns the SQL required to create the <code>{table_name}</code> table. Table creation and lifecycle management are handled by the database [Methods](/components/database/methods) and [Schema Manager](/components/database/schema-manager).
-
-This dimension is fully self-contained.
-
-## Example
-
-<ReadComponents filePath={`registry/components/implementations/${table_name}.py`}/>

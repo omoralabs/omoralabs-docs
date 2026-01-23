@@ -7,8 +7,16 @@ export const caption = "A list of GL Accounts"
 export const caption_segmented = "A list of GL Accounts segmented with business units"
 export const table_name="gl_accounts"
 
-## Component
-<br/>
+## Semantic Contract
+### Definitions
+| Column | Description |
+|--------|-------------|
+| id | Unique identifier for the GL account. |
+| name | Name of the GL account (e.g., Revenue, Cost of Goods Sold, Marketing Expense). |
+| parent_gl | Self-reference to the GL account for hierarchy (nullable if top-level). |
+| business_unit_id | Reference to the business unit (only if segmented; links to [Business Units](./business-units)). |
+
+### Schema & Sample
 
 <GLAccountsSelector
   segmented={
@@ -36,21 +44,4 @@ export const table_name="gl_accounts"
 
 ## Dependencies
 
-### Internal
-
 - **[Business Units](./business-units)**: required when `is_segmented=true`.
-
-### External
-
-- None.
-
-## Integration
-
-This dimension defines and returns the SQL required to create the <code>{table_name}</code> table. Table creation and lifecycle management are handled by the database [Methods](/components/database/methods) and [Schema Manager](/components/database/schema-manager).
-
-When `is_segmented=true`, the schema extends to reference the [Business Units](./business-units) dimension.
-When `false`, the dimension remains fully self-contained.
-
-## Example
-
-<ReadComponents filePath={`registry/components/implementations/${table_name}.py`}/>

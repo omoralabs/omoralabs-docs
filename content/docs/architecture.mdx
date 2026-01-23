@@ -1,0 +1,88 @@
+---
+title: Architecture
+description: "Omora Labs is built on a three-layer architecture that separates semantic-aware transformation, business logic, and reporting, ensuring financial definitions are encoded once and reused everywhere."
+---
+
+import {Layers, Box, Table2, Shuffle, Cpu} from 'lucide-react'
+
+## Overview
+
+Omora Labs inverts the traditional analytics stack: business meaning is defined first in a semantic layer, and all downstream transformations and reports consume those definitions.
+
+### 1. Semantic Layers
+**Business meaning → Contract definitions**
+
+The semantic layer defines the core business concepts of the organization before any data is ingested. [Dimensions](/dimensions) such as Periods, GL Accounts, Business Units, Revenue Types, Revenue Changes, and Value Types encode financial meaning, hierarchies, and classification rules once, in code.
+
+These definitions are authoritative. They act as a contract: all incoming data, downstream transformations, and reports must conform to them. The semantic layer determines what concepts exist, how they relate, and how business logic is interpreted, independent of any specific dataset.
+
+**Example**: Defining a fiscal calendar, a chart of accounts hierarchy, and valid revenue classifications before any transactions are uploaded.
+
+**Stack**: [DuckDB](https://duckdb.org/)
+
+### 2. Workers
+**Manual work → Version-controlled automation**
+
+Workers are background processes that automate data ingestion, enrichment, and maintenance tasks. They run on schedules or events and always write data through the semantic layer contract, ensuring all generated or fetched data conforms to existing dimensions.
+
+**Examples**: Fetching FX rates.
+
+**Stack**: [Dagster](https://dagster.io/) | [Polars](https://pola.rs/)
+
+### 3. Transformations
+**Dimensions → Analytical models**
+
+This layer builds analytical models and derived datasets by consuming dimension-aligned data from ingestion. All business meaning is already defined and enforced; [transformations](/transformations) here focus on derivation, not interpretation.
+
+Typical outputs include fact tables, aggregates, and reusable analytical models (e.g. monthly revenue, budget vs actuals inputs, cash flow building blocks). No dimension logic is redefined: **transformations strictly rely on the semantic layer**.
+
+**Example:** Building a monthly Budget vs Actuals model by aggregating transactions along Periods, GL Accounts, and Value Types, without redefining fiscal calendars or account groupings.
+
+**Stack**: [dbt](https://www.getdbt.com/)
+
+### 4. Reporting
+**Analytical models → Dashboards and outputs**
+
+This layer is responsible for consumption and presentation only. All business logic has already been applied upstream, so reports and dashboards simply query precomputed analytical views and render results for automated and repeatable decision-making. No business logic or classification exists at this stage.
+
+**Example**: A Budget vs Actuals dashboard visualizes precomputed monthly figures by Period and GL Account, inheriting all definitions from upstream layers.
+
+**Stack**: [Hex](https://hex.tech/) | [Looker](https://lookerstudio.google.com)
+
+## Why This Architecture?
+
+**Without a semantic layer**:
+- Budgeting and reporting logic lives in fragile spreadsheets and BI tools
+- Automations break when files, filters, or dashboards change
+- Business definitions are reimplemented per tool, per report
+- Data and logic become coupled to vendors, ERPs, or BI platforms
+
+**With Omora Labs**:
+- Financial logic is automated once and reused everywhere
+- Budgets, forecasts, and reference data can be generated and maintained by code
+- Business definitions live in your repository, not inside spreadsheets or BI tools
+- Your data remains proprietary and portable, independent of any vendor
+
+
+## Next Steps
+
+Explore Semantic Layers to see contract components, check automation with workers, review transformations in action, or browse templates that showcase the workflow end-to-end.
+
+<div className="mt-8 grid gap-4 sm:grid-cols-2 sm:gap-6">
+  <LinkedCard href="semantic-layers">
+      <Table2 className="h-8 w-8"/>
+    <p className="mt-2 dark:text-gray-300 dark:font-light">Semantic Layers</p>
+  </LinkedCard>
+  <LinkedCard href="workers">
+      <Cpu className="h-8 w-8"/>
+    <p className="mt-2 dark:text-gray-300 dark:font-light">Workers</p>
+  </LinkedCard>
+  <LinkedCard href="transformations">
+      <Shuffle className="h-8 w-8"/>
+    <p className="mt-2 dark:text-gray-300 dark:font-light">Transformations</p>
+  </LinkedCard>
+  <LinkedCard href="templates">
+      <Box className="h-8 w-8"/>
+    <p className="mt-2 dark:text-gray-300 dark:font-light">Templates</p>
+  </LinkedCard>
+</div>

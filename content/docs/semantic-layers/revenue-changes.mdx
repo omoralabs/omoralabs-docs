@@ -6,8 +6,18 @@ description: Revenue facts on changes, defining price and volume per period, val
 export const caption = "A list of Revenue Changes"
 export const table_name="revenue_changes"
 
-## Component
-<br/>
+## Semantic Contract
+### Definitions
+
+| Column | Description |
+|--------|-------------|
+| period_id | Factual reference to the period (links to [periods](semantic-layer/periods)). |
+| revenue_type_id | Type of revenue change (links to [revenue_types](semantic-layer/revenue_types), e.g., New Booking, Upsell). |
+| value_type_id | Type of value measured (links to [value_types](semantic-layer/value_types), e.g., actuals, budget). |
+| nr_of_customers | Volume variable with number of customers contributing to this revenue change. |
+| value_per_customer | Pricing variable, with revenue per customer for this change. |
+
+### Schema & Sample
 
   <RenderTable csvPath={`registry/samples/${table_name}/sample.csv`} caption={caption}>
       <ReadComponents filePath={`registry/components/dimensions/presentation/${table_name}.sql`}/>
@@ -24,22 +34,6 @@ export const table_name="revenue_changes"
 
 ## Dependencies
 
-### Internal
-
 - **[Periods](./periods)**
 - **[Revenue Types](./revenue-types)**
 - **[Value Types](./value-types)**
-
-### External
-
-- None.
-
-## Integration
-
-This dimension defines and returns the SQL required to create the <code>{table_name}</code> table. Table creation and lifecycle management are handled by the database [Methods](/components/database/methods) and [Schema Manager](/components/database/schema-manager).
-
-The schema extends to reference the [Periods](./periods), [Revenue Types](./revenue-types), [Value Types](./value-types) dimensions.
-
-## Example
-
-<ReadComponents filePath={`registry/components/implementations/${table_name}.py`}/>

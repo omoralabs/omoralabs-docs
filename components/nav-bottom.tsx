@@ -14,7 +14,7 @@ export function NavigationBottom({ neighbours }: NavigationBottomProps) {
   const pathname = usePathname();
   return (
     pathname !== "/" && (
-      <div className="mx-auto flex h-16 w-full max-w-2xl items-center justify-between gap-2 px-4 md:px-0">
+      <div className="flex h-16 w-full items-center justify-between gap-2">
         {neighbours.previous && (
           <Button variant="secondary" size="sm" asChild className="shadow-none">
             <Link

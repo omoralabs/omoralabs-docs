@@ -6,8 +6,15 @@ description: A business unit dimension, operational grouping for reporting and m
 export const caption = "A list of Business Units"
 export const table_name = "business_units"
 
-## Component
-<br/>
+## Semantic Contract
+### Definitions
+
+| Column | Description |
+|--------|-------------|
+| id | Unique identifier for the business unit. |
+| name | Name of the business unit representing an operational area or line of business (e.g. Enterprise Software, Cloud Services). |
+
+### Schema & Sample
 
   <RenderTable csvPath={`registry/samples/${table_name}/sample.csv`} caption={caption}>
   <ReadComponents filePath={`registry/components/dimensions/presentation/${table_name}.sql`}/>
@@ -19,20 +26,4 @@ export const table_name = "business_units"
 
 ## Dependencies
 
-### Internal
-
 - None.
-
-### External
-
-- None.
-
-## Integration
-
-This dimension defines and returns the SQL required to create the <code>{table_name}</code> table. Table creation and lifecycle management are handled by the database [Methods](/components/database/methods) and [Schema Manager](/components/database/schema-manager).
-
-This dimension is fully self-contained.
-
-## Example
-
-<ReadComponents filePath={`registry/components/implementations/${table_name}.py`}/>

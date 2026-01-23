@@ -5,4 +5,5 @@
 # Omora Labs Documentation
 
 Official Omora Labs documentation.
-Building blocks for composable, modern finance analytics.
+
+Omora Labs provides reusable finance data components - transformations, semantic dimensions, and reporting blocks — for building production-grade analytics pipelines. Code-first, version-controlled, no vendor lock-in.
