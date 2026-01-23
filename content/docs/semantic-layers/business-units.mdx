@@ -17,12 +17,12 @@ export const table_name = "business_units"
 ### Schema & Sample
 
   <RenderTable csvPath={`registry/samples/${table_name}/sample.csv`} caption={caption}>
-  <ReadComponents filePath={`registry/components/dimensions/presentation/${table_name}.sql`}/>
+  <ReadComponents filePath={`registry/components/semantic_layers/sqls/${table_name}.sql`}/>
   </RenderTable>
 
 ## Data Format
 
-<TypeTableFromFile filePath={`registry/components/dimensions/${table_name}.json`} />
+<TypeTableFromFile filePath={`registry/components/semantic_layers/${table_name}.json`} />
 
 ## Dependencies
 

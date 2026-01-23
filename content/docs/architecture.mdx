@@ -3,8 +3,6 @@ title: Architecture
 description: "Omora Labs is built on a three-layer architecture that separates semantic-aware transformation, business logic, and reporting, ensuring financial definitions are encoded once and reused everywhere."
 ---
 
-import {Layers, Box, Table2, Shuffle, Cpu} from 'lucide-react'
-
 ## Overview
 
 Omora Labs inverts the traditional analytics stack: business meaning is defined first in a semantic layer, and all downstream transformations and reports consume those definitions.
@@ -12,9 +10,9 @@ Omora Labs inverts the traditional analytics stack: business meaning is defined 
 ### 1. Semantic Layers
 **Business meaning → Contract definitions**
 
-The semantic layer defines the core business concepts of the organization before any data is ingested. [Dimensions](/dimensions) such as Periods, GL Accounts, Business Units, Revenue Types, Revenue Changes, and Value Types encode financial meaning, hierarchies, and classification rules once, in code.
+The semantic layer defines the core business concepts of the organization before any data is ingested. [Semantic Layers](/semantic-layers) such as Periods, GL Accounts, Business Units, Revenue Types, Revenue Changes, and Value Types encode financial meaning, hierarchies, and classification rules once, in code.
 
-These definitions are authoritative. They act as a contract: all incoming data, downstream transformations, and reports must conform to them. The semantic layer determines what concepts exist, how they relate, and how business logic is interpreted, independent of any specific dataset.
+These definitions are authoritative. They act as a contract: all incoming data, downstream transformations, and reports must conform to them. The semantic layer determines what concepts exist, how they relate, and how business logic is interpreted, independent of any specific dataset. These contracts are expressed in SQL.
 
 **Example**: Defining a fiscal calendar, a chart of accounts hierarchy, and valid revenue classifications before any transactions are uploaded.
 
@@ -27,7 +25,7 @@ Workers are background processes that automate data ingestion, enrichment, and m
 
 **Examples**: Fetching FX rates.
 
-**Stack**: [Dagster](https://dagster.io/) | [Polars](https://pola.rs/)
+**Stack**: [Polars](https://pola.rs/) | [Dagster](https://dagster.io/)
 
 ### 3. Transformations
 **Dimensions → Analytical models**
@@ -40,7 +38,7 @@ Typical outputs include fact tables, aggregates, and reusable analytical models 
 
 **Stack**: [dbt](https://www.getdbt.com/)
 
-### 4. Reporting
+### 4. Reporting & BI
 **Analytical models → Dashboards and outputs**
 
 This layer is responsible for consumption and presentation only. All business logic has already been applied upstream, so reports and dashboards simply query precomputed analytical views and render results for automated and repeatable decision-making. No business logic or classification exists at this stage.
@@ -81,8 +79,8 @@ Explore Semantic Layers to see contract components, check automation with worker
       <Shuffle className="h-8 w-8"/>
     <p className="mt-2 dark:text-gray-300 dark:font-light">Transformations</p>
   </LinkedCard>
-  <LinkedCard href="templates">
+  <LinkedCard href="blueprints">
       <Box className="h-8 w-8"/>
-    <p className="mt-2 dark:text-gray-300 dark:font-light">Templates</p>
+    <p className="mt-2 dark:text-gray-300 dark:font-light">Blueprints</p>
   </LinkedCard>
 </div>

@@ -6,7 +6,8 @@
     "semantic-layers/index",
     "workers/index",
     "transformations/index",
-    "templates/index",
+    "blueprints/index",
+    "stack",
     "---Semantic Layers---",
     "semantic-layers/business-units",
     "semantic-layers/gl-accounts",
@@ -17,8 +18,8 @@
     "---Workers---",
     "workers/ex-rates",
     "---Transformations---",
-    "---Templates---",
-    "templates/budget-vs-actuals",
-    "templates/weekly-cash-balances"
+    "---Blueprints---",
+    "blueprints/budget-vs-actuals",
+    "blueprints/weekly-cash-balances"
   ]
 }

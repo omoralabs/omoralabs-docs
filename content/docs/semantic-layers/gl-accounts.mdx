@@ -21,12 +21,12 @@ export const table_name="gl_accounts"
 <GLAccountsSelector
   segmented={
   <RenderTable csvPath="registry/samples/gl_accounts/segmented.csv" caption={caption_segmented}>
-  <ReadComponents filePath={`registry/components/dimensions/presentation/${table_name}_segmented.sql`}/>
+  <ReadComponents filePath={`registry/components/semantic_layers/sqls/${table_name}_segmented.sql`}/>
   </RenderTable>
   }
   simple={
   <RenderTable csvPath="registry/samples/gl_accounts/simple.csv" caption={caption}>
-  <ReadComponents filePath={`registry/components/dimensions/presentation/${table_name}_simple.sql`}/>
+  <ReadComponents filePath={`registry/components/semantic_layers/sqls/${table_name}_simple.sql`}/>
   </RenderTable>
   }
 />
@@ -35,13 +35,13 @@ export const table_name="gl_accounts"
 
 <GLAccountsSelector
   segmented={
-    <TypeTableFromFile filePath={`registry/components/dimensions/${table_name}_segmented.json`} />
+    <TypeTableFromFile filePath={`registry/components/semantic_layers/${table_name}_segmented.json`} />
   }
   simple={
-    <TypeTableFromFile filePath={`registry/components/dimensions/${table_name}_simple.json`} />
+    <TypeTableFromFile filePath={`registry/components/semantic_layers/${table_name}_simple.json`} />
   }
 />
 
 ## Dependencies
 
-- **[Business Units](./business-units)**: required when `is_segmented=true`.
+- **[Business Units](./business-units)**: required when segmented.

@@ -1,0 +1,112 @@
+---
+title: Stack
+description: "A modern, open analytics stack designed for semantic contracts, performance, and long-term portability."
+---
+
+## Overview
+
+Omora Labs is built on a deliberately small, opinionated **open-source** stack. Each component is chosen to reinforce the same core idea: **business meaning is defined once, in code, and reused everywhere**. This approach gives you full ownership over your data and business logic, keeping definitions portable, inspectable, and independent of any specific vendor or tool.
+
+There are no black boxes, no proprietary semantic layers, and no logic hidden inside BI tools. Core layers are fully open source, inspectable, version-controlled, and replaceable, ensuring your data models and business definitions remain portable and under your control.
+
+The only exceptions are optional reporting tools such as [Hex](https://hex.tech/) or [Looker](https://lookerstudio.google.com), which may involve a small fee for visualization and collaboration. These sit strictly at the edge of the system and can be swapped or removed without affecting the underlying data model, transformations, or semantic contracts.
+
+The stack follows the architecture outlined in [Architecture](/architecture), with each tool serving a specific role in that system.
+
+## Blazing Fast Analytics
+**Local-first, columnar execution**
+
+**Polars** and **DuckDB** form the execution backbone of Omora Labs.
+
+<Callout>
+    Both Polars and DuckDB consistently rank among the fastest open-source engines for analytical workloads. Together they represent a performance class few other local analytics tools reach, providing both blazing speed and efficiency for finance-grade analytics pipelines. [Source](https://www.codecentric.de/en/knowledge-hub/blog/duckdb-vs-dataframe-libraries).
+</Callout>
+
+[DuckDB](https://duckdb.org/) acts as the analytical database and [semantic enforcement layer](/semantic-layers). It stores dimensions, contracts, and analytical models in open, file-based formats and executes SQL directly where the data lives.
+
+[Polars](https://pola.rs/) is used by [workers](./workers) and pipelines for high-performance data processing, enrichment, and generation tasks. It enables fast transformations without requiring a heavyweight distributed system.
+
+**Why this matters**
+
+- No dependency on cloud warehouses to get started
+- Extremely fast iteration on financial models
+- Open formats (Parquet, Arrow) keep data portable
+- Perfect fit for semantic-first, SQL-defined contracts
+
+**Stack**: [DuckDB](https://duckdb.org/) | [Polars](https://pola.rs/)
+
+## Orchestration
+**Deterministic, observable automation**
+
+**Dagster** orchestrates all background work: ingestion, enrichment, reference data updates, and scheduled computations.
+
+Unlike cron-based scripts or opaque ETL tools, [Dagster](https://dagster.io/) makes data dependencies explicit. Each job declares its inputs and outputs, ensuring workers always write data that conforms to the [semantic layer](/semantic-layers).
+
+**Why this matters**
+
+- Automations are versioned, testable, and observable
+- Failures are visible and debuggable
+- Pipelines evolve safely as the semantic layer grows
+
+**Stack**: [Dagster](https://dagster.io/)
+
+## Transformations
+
+**Derivation without interpretation**
+
+**dbt** is used exclusively for analytical transformations: building fact tables, aggregates, and reusable analytical models.
+
+All business meaning already exists upstream in the semantic layer. [dbt](https://www.getdbt.com/) models consume definitions, they do not redefine them.
+
+This keeps transformations simple, auditable, and aligned across all outputs.
+
+**Why this matters**
+
+- No duplicated business logic
+- Clear separation between meaning and computation
+- Analytical models remain stable even as reports change
+
+## Reporting & BI
+
+**Consumption only, no logic**
+
+Reporting tools sit at the very edge of the system.
+
+Dashboards and notebooks query precomputed analytical models and render results. They do not contain classifications, joins, fiscal logic, or metric definitions.
+
+This makes reports disposable, reproducible, and easy to replace.
+
+**Why this matters**
+
+- No metric drift across dashboards
+- No logic locked inside BI tools
+- You can switch tools without rewriting your data model
+
+**Stack**: [Hex](https://hex.tech/) | [Looker](https://lookerstudio.google.com)
+
+## Wrapping Up
+
+This stack gives you a finance analytics system that is fast, transparent, and hard to break. Business meaning lives in code, not dashboards. Performance comes from modern analytical engines, not fragile optimizations. Tools are chosen for clarity and replaceability, not lock-in.
+
+You can run Omora Labs end-to-end with fully open-source components, choose freely your reporting tool, and evolve the stack over time without rewriting your core logic. The result is an analytics foundation that scales with your data, your organization, and your questions, **without ever losing control over your data**.
+
+**Explore**
+
+<div className="mt-8 grid gap-4 sm:grid-cols-2 sm:gap-6">
+  <LinkedCard href="semantic-layers">
+      <Table2 className="h-8 w-8"/>
+    <p className="mt-2 dark:text-gray-300 dark:font-light">Semantic Layers</p>
+  </LinkedCard>
+  <LinkedCard href="workers">
+      <Cpu className="h-8 w-8"/>
+    <p className="mt-2 dark:text-gray-300 dark:font-light">Workers</p>
+  </LinkedCard>
+  <LinkedCard href="transformations">
+      <Shuffle className="h-8 w-8"/>
+    <p className="mt-2 dark:text-gray-300 dark:font-light">Transformations</p>
+  </LinkedCard>
+  <LinkedCard href="templates">
+      <Box className="h-8 w-8"/>
+    <p className="mt-2 dark:text-gray-300 dark:font-light">Blueprints</p>
+  </LinkedCard>
+</div>

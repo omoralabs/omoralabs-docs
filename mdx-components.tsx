@@ -12,24 +12,18 @@ import {
   ArrowLeftRight,
   Box,
   Compass,
+  Cpu,
   Diff,
   GraduationCap,
   Layers,
   Play,
+  Shuffle,
+  Table2,
   Wallet,
   Zap,
 } from "lucide-react";
 import type { MDXComponents } from "mdx/types";
 import Link from "next/link";
-
-import {
-  DagsterLogo,
-  DBTLogo,
-  DuckDBLogo,
-  HexLogo,
-  LookerLogo,
-  PolarsLogo,
-} from "icons/general";
 
 import { File, Files, Folder } from "fumadocs-ui/components/files";
 
@@ -212,6 +206,9 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     Tooltip,
     TooltipTrigger,
     TooltipContent,
+    Table2,
+    Shuffle,
+    Cpu,
     LinkedCard: ({
       className,
       ...props
@@ -233,11 +230,5 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
         {...props}
       />
     ),
-    DagsterLogo,
-    DBTLogo,
-    DuckDBLogo,
-    HexLogo,
-    LookerLogo,
-    PolarsLogo,
   };
 }
