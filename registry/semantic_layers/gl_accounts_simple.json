@@ -1,5 +1,7 @@
 {
   "table_name": "gl_accounts",
+  "staging": true,
+  "data": "gl_accounts_simple.csv",
   "fields": {
     "id": {
       "type": "INTEGER PRIMARY KEY"
@@ -11,21 +13,19 @@
       "type": "INTEGER",
       "description": "Self-referencing foreign key to gl_accounts(id)"
     },
-    "business_unit_id": {
+    "gl_account_type_id": {
       "type": "INTEGER",
-      "description": "Foreign key to business_units(id)"
+      "description": "Foreign key to gl_accounts_types(id)"
     }
   },
   "foreign_keys": [
     {
       "field": "parent_gl",
-      "references": "gl_accounts(id)",
-      "on_delete": "SET NULL"
+      "references": "gl_accounts(id)"
     },
     {
-      "field": "business_unit_id",
-      "references": "business_units(id)",
-      "on_delete": "CASCADE"
+      "field": "gl_account_type_id",
+      "references": "gl_accounts_types(id)"
     }
   ]
 }

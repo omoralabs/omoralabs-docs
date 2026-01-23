@@ -8,7 +8,7 @@
       "type": "INTEGER NOT NULL"
     },
     "date": {
-      "type": "DATE NOT NULL"
+      "type": "DATE"
     }
   },
   "foreign_keys": []

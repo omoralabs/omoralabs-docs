@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS periods (
     id INTEGER PRIMARY KEY,
     period INTEGER NOT NULL,
-    date DATE NOT NULL
+    date DATE
 )
