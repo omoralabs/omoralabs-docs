@@ -5,9 +5,16 @@ import polars as pl
 
 
 class DBConnect:
-    def __init__(self, db_name: str):
+    def __init__(self, db_name: str, remote: bool = False):
         self.db_name = db_name
-        self.conn = duckdb.connect(db_name)
+        self.remote = remote
+
+        if self.remote:
+            self.conn = duckdb.connect("md:")
+            self.conn.execute(f"CREATE DATABASE IF NOT EXISTS {self.db_name}")
+            self.conn.execute(f"USE {self.db_name}")
+        else:
+            self.conn = duckdb.connect(self.db_name)
 
     def __enter__(self):
         self.conn.begin()

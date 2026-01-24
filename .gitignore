@@ -3,5 +3,4 @@ node_modules/
 .next/
 __pycache__
 .venv/
-uv.lock
 .pytest_cache

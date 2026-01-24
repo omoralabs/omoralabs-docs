@@ -4,10 +4,12 @@ from .data_loader import load_sample_data
 from .methods import DBConnect
 from .schema_manager import get_schemas
 
+db_name = "budget_vs_actuals"
 
-def main(db_name: str):
+
+def setup_db(remote: bool = False):
     print("Initiating DB...")
-    db = DBConnect(db_name)
+    db = DBConnect(db_name, remote)
 
     print("Getting components...")
     registry = Path(__file__).parent
@@ -25,7 +27,11 @@ def main(db_name: str):
     print("✓ Process completed")
 
 
-def cli():
+def entry_setup_local_db():
     """Entry point for console script"""
-    db_name = ""
-    main(db_name)
+    setup_db()
+
+
+def entry_to_remote():
+    """Entry point for console script"""
+    setup_db(remote=True)
