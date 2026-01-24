@@ -30,12 +30,5 @@ jobs:
         with:
           python-version: '3.13'
 
-      - name: Install dependencies
-        run: |
-          cd registry
-          uv pip install pytest duckdb polars
-
       - name: Run tests
-        run: |
-          cd registry
-          uv run pytest tests/ -v
+        run: uv run --directory registry pytest tests/ -v
