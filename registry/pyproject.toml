@@ -1,7 +1,7 @@
 [project]
-name="omoralabs-registry"
-version="0.1.0"
-dependencies= [
+name = "omoralabs-registry"
+version = "0.1.0"
+dependencies = [
 "duckdb",
 "polars",
 "pytest"
