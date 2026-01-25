@@ -4,7 +4,8 @@ import { NavigationBottom } from "components/nav-bottom";
 import { findNeighbour } from "fumadocs-core/page-tree";
 import { DocsBody } from "fumadocs-ui/layouts/docs/page";
 import { createRelativeLink } from "fumadocs-ui/mdx";
-import { getPageImage, source } from "lib/source";
+import { source } from "lib/source";
+import { getSEOTags } from "lib/seo";
 import { getMDXComponents } from "mdx-components";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -103,11 +104,9 @@ export async function generateMetadata(
 
   const isHomePage = !params.slug || params.slug.length === 0;
 
-  return {
-    title: isHomePage ? "Omora Docs" : `${page.data.title} | Omora Docs`,
+  return getSEOTags({
+    title: isHomePage ? undefined : `${page.data.title} | Omora Docs`,
     description: page.data.description,
-    openGraph: {
-      images: getPageImage(page).url,
-    },
-  };
+    canonicalUrlRelative: page.url,
+  });
 }
