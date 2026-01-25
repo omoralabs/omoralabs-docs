@@ -8,8 +8,6 @@ interface SEOProps {
   keywords?: string[];
 }
 
-const logo = "omora.png";
-
 export function getSEOTags({
   title,
   description,
@@ -35,13 +33,13 @@ export function getSEOTags({
       siteName: config.websiteName,
       locale: "en_US",
       type: "website",
-      images: [{ url: config.websiteUrl + logo }],
+      images: [{ url: config.websiteUrl + "/omora.png" }],
     },
     twitter: {
       card: "summary_large_image",
       title: seoTitle,
       description: seoDescription,
-      images: [{ url: config.websiteUrl + logo }],
+      images: [{ url: config.websiteUrl + "/omora.png" }],
     },
   };
 
@@ -57,7 +55,7 @@ export function generateSchemaObject() {
     name: websiteName,
     description: config.websiteDescription,
     url: websiteUrl,
-    image: config.websiteUrl + logo,
+    image: config.websiteUrl + "/omora.png",
     sameAs: [],
   };
 }
@@ -90,7 +88,9 @@ export function getArticleSEOTags({
       publishedTime,
       authors,
       tags,
-      images: image ? [{ url: image }] : [{ url: config.websiteUrl + logo }],
+      images: image
+        ? [{ url: image }]
+        : [{ url: config.websiteUrl + "/omora.png" }],
     },
   };
 }
