@@ -1,0 +1,28 @@
+{
+  "table_name": "assets",
+  "primary_key": ["date", "asset_id"],
+  "fields": {
+    "date": {
+      "type": "DATE NOT NULL",
+      "description": "Foreign key to dates(date)"
+    },
+    "asset_id": {
+      "type": "UUID NOT NULL",
+      "description": "Foreign key to assets_providers(id)"
+    },
+    "amount": {
+      "type": "DOUBLE NOT NULL",
+      "description": "Fact registered in a currency unit"
+    }
+  },
+  "foreign_keys": [
+    {
+      "field": "asset_id",
+      "references": "assets_providers(id)"
+    },
+    {
+      "field": "date",
+      "references": "dates(date)"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "db_name": "weekly_cash_balances",
+  "semantic_layers": {
+    "dates": {
+      "schema": "semantic_layers/dates.json",
+      "dependencies": []
+    },
+    "asset_types": {
+      "schema": "semantic_layers/asset_types.json",
+      "dependencies": []
+    },
+    "assets_providers": {
+      "schema": "semantic_layers/assets_providers.json",
+      "dependencies": ["asset_types", "currencies"]
+    },
+    "currencies": {
+      "schema": "semantic_layers/currencies.json",
+      "dependencies": []
+    },
+    "currency_pairs": {
+      "schema": "semantic_layers/currency_pairs.json",
+      "dependencies": ["currencies"]
+    }
+  },
+  "facts": {
+    "assets": {
+      "schema": "facts/assets.json",
+      "dependencies": ["dates", "assets_providers"]
+    },
+    "exchange_rates": {
+      "schema": "facts/exchange_rates.json",
+      "dependencies": ["dates", "currency_pairs"]
+    }
+  },
+  "transformations": {
+    "assets_metadata": "registry/transformations/models/intermediate/assets_metadata.sql",
+    "assets_values": "registry/transformations/models/intermediate/assets_values.sql",
+    "reporting_rates": "registry/transformations/models/intermediate/reporting_rates.sql",
+    "assets_by_currency": "registry/transformations/models/assets_by_currency.sql",
+    "assets_converted": "registry/transformations/models/assets_converted.sql",
+    "cash_balances_byrc": "registry/transformations/models/cash_balances_byrc.sql"
+  },
+  "workers": ["ex_rates"]
+}
