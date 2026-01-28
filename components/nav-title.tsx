@@ -18,7 +18,7 @@ export function NavTitle() {
       <div>
         <div className="hidden lg:flex items-center md:px-10 px-4">
           <a
-            href="https://omoralabs.com"
+            href="https://www.omoralabs.com"
             className="cursor-pointer mr-2"
             target="_blank"
           >

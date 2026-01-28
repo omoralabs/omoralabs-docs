@@ -58,7 +58,7 @@ export default async function Page(props: PageProps<"/[[...slug]]">) {
           <p>
             Built by{" "}
             <Link
-              href="https://bdobruno.com/"
+              href="https://www.bdobruno.com/"
               className="underline underline-offset-4 hover:text-foreground"
               target="_blank"
             >
